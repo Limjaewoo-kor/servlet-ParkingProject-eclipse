@@ -32,7 +32,7 @@ public class regulerJoincontroller extends HttpServlet{
 			request.setAttribute("mamont",mamont);
 			request.setAttribute("Mamont",Mamont);
 			request.setAttribute("car_number",car_number);
-			request.getRequestDispatcher("regulerJoinError.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/regulerJoinError.jsp").forward(request, response);
 			
 		}else {
 		int cashs = Integer.parseInt(cash);
@@ -43,24 +43,24 @@ public class regulerJoincontroller extends HttpServlet{
 		if(results == cashs){
 			request.setAttribute("mamont",mamont);
 			request.setAttribute("Mamont",Mamont);
-			request.getRequestDispatcher("memberJoin.jsp").forward(request, response); 
+			request.getRequestDispatcher("/WEB-INF/view/memberJoin.jsp").forward(request, response); 
 		  }else if(results > cashs){
 			  request.setAttribute("mamont",mamont);
 			  request.setAttribute("car_number",car_number);
 				request.setAttribute("Mamont",Mamont);
-				request.getRequestDispatcher("regulerJoinError.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/regulerJoinError.jsp").forward(request, response);
 		  }else if(results < cashs){
 			  request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 			  request.setAttribute("car_number",car_number);
 				request.setAttribute("to",to);
-				request.getRequestDispatcher("memberJoinchange.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/memberJoinchange.jsp").forward(request, response);
 		  }else if(cash == null || cash == "") {
 			  request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 			  request.setAttribute("car_number",car_number);
 				request.setAttribute("result",results);
-				request.getRequestDispatcher("regulerJoinError.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/regulerJoinError.jsp").forward(request, response);
 		  }}
 	}else if(command.trim().equals("regulerJointo")) {
 		String car_number = (String)request.getParameter("car_number");
@@ -69,14 +69,14 @@ public class regulerJoincontroller extends HttpServlet{
 		request.setAttribute("mamont",mamont);
 		request.setAttribute("car_number",car_number);
 		request.setAttribute("Mamont",Mamont);
-		request.getRequestDispatcher("memberJoin.jsp").forward(request, response); 
+		request.getRequestDispatcher("/WEB-INF/view/memberJoin.jsp").forward(request, response); 
 	
 	}else if(command.trim().equals("regulerJoinCard")) {
 		String Mamont = (String)request.getParameter("Mamont");
 		String mamont = (String)request.getParameter("mamont");
 		request.setAttribute("mamont",mamont);
 		request.setAttribute("Mamont",Mamont);
-		request.getRequestDispatcher("memberJoin.jsp").forward(request, response); 
+		request.getRequestDispatcher("/WEB-INF/view/memberJoin.jsp").forward(request, response); 
 	
 	}else if(command.trim().equals("regulerJoinComplete")) {
 		String Mamont = (String)request.getParameter("Mamont");
@@ -101,7 +101,7 @@ public class regulerJoincontroller extends HttpServlet{
 			  else {
 					request.setAttribute("mamont",mamont);
 					request.setAttribute("Mamont",Mamont);
-					request.getRequestDispatcher("memberjoinSt.jsp").forward(request, response); 
+					request.getRequestDispatcher("/WEB-INF/view/memberjoinSt.jsp").forward(request, response); 
 
 			  }
 	}

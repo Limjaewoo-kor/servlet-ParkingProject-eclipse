@@ -42,7 +42,7 @@ public class hybirdJoincontroller extends HttpServlet{
 			  else {
 					request.setAttribute("mamont",mamont);
 					request.setAttribute("Mamont",Mamont);
-					request.getRequestDispatcher("memberjoinSt.jsp").forward(request, response); 
+					request.getRequestDispatcher("/WEB-INF/view/memberjoinSt.jsp").forward(request, response); 
 			  }
 	}
 }

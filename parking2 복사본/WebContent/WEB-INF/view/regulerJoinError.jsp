@@ -5,10 +5,8 @@
 <% request.setCharacterEncoding("UTF-8");%>
 <% 			String mamont = (String)request.getAttribute("mamont");
 			String Mamont = (String)request.getAttribute("Mamont");
-
+			String car_number = (String)request.getAttribute("car_number");
 			%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,24 +82,24 @@ height:750px;
     </style>
 </head>
 <body>	
+ 
  <div class="header" style="text-align:center;">
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-					현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
-		
+			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
- 
-<form action="managerLogin.jsp" method="post" class="form1">
-		잘못된 입력입니다.
-		
+	
+<form action="/WEB-INF/view/regulerJoinAction.jsp" method="post" class="form1">
+		금액이 부족합니다.
+		<input type= hidden name ="car_number" value="<%=car_number%>">
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 	 	<input type= hidden name ="mamont" value="<%=mamont%>">
 		<input type= "submit" class="btn" value="돌아가기" style="margin-left:30px;">
 </form>
- 
- 	 <footer>
+
+	 <footer>
         <div class="column">
                 <div class="footer-box">
                     <div class="footer">

@@ -121,7 +121,7 @@ public class managerLogcontroller extends HttpServlet{
 				 if(ID1 == null || Password1 == null) {
 						request.setAttribute("mamont",mamont);
 						request.setAttribute("Mamont",Mamont);
-						request.getRequestDispatcher("managererror.jsp").forward(request, response);
+						request.getRequestDispatcher("/WEB-INF/view/managererror.jsp").forward(request, response);
 				}
 				if(ID.equals(ID1) && Password.equals(Password1)) {
 					request.setAttribute("memlist",memlist);
@@ -130,12 +130,12 @@ public class managerLogcontroller extends HttpServlet{
 					request.setAttribute("Mamont",Mamont);
 					request.setAttribute("ID1",ID1);
 					request.setAttribute("Password1",Password1);
-					request.getRequestDispatcher("manager.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/view/manager.jsp").forward(request, response);
 					
 				  }else{
 					  request.setAttribute("mamont",mamont);
 						request.setAttribute("Mamont",Mamont);
-						request.getRequestDispatcher("managererror.jsp").forward(request, response);
+						request.getRequestDispatcher("/WEB-INF/view/managererror.jsp").forward(request, response);
 				  }
 			}else if(command.trim().equals("managerAction1")) {
 			 	String mamont = (String)request.getAttribute("mamont");
@@ -149,7 +149,7 @@ public class managerLogcontroller extends HttpServlet{
 				if(ID1 == null || Password1 == null) {
 					request.setAttribute("mamont",mamont);
 					request.setAttribute("Mamont",Mamont);
-					request.getRequestDispatcher("managererror.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/view/managererror.jsp").forward(request, response);
 			}
 			if(ID.equals(ID1) && Password.equals(Password1)) {
 				request.setAttribute("memlist",memlist);
@@ -158,12 +158,12 @@ public class managerLogcontroller extends HttpServlet{
 				request.setAttribute("Mamont",Mamont);
 				request.setAttribute("ID1",ID1);
 				request.setAttribute("Password1",Password1);
-				request.getRequestDispatcher("manager.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/manager.jsp").forward(request, response);
 				
 			  }else{
 				  request.setAttribute("mamont",mamont);
 					request.setAttribute("Mamont",Mamont);
-					request.getRequestDispatcher("managererror.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/view/managererror.jsp").forward(request, response);
 			  }
 					
 				

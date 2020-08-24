@@ -30,7 +30,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 				request.setAttribute("car_number",car_number);
-				request.getRequestDispatcher("error2.jsp").forward(request, response);  
+				request.getRequestDispatcher("/WEB-INF/view/error2.jsp").forward(request, response);  
 			}else {
 			Parking parkingDTO = new Parking();
 			parkingDTO.setCar_number(car_number);
@@ -44,7 +44,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 				request.setAttribute("car_number",car_number);
-				request.getRequestDispatcher("error.jsp").forward(request, response);  //출차불가능
+				request.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(request, response);  //출차불가능
 				
 		  }
 			else if(result == -1){
@@ -149,7 +149,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("Mamont",Mamont);
 			request.setAttribute("car_number",car_number);
 			request.setAttribute("result",result);
-			request.getRequestDispatcher("settlementAction.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/settlementAction.jsp").forward(request, response);
 		 } if(result == -2){
 			 response.sendRedirect("history.back()");
 			  System.out.println("정산 에러");
@@ -176,7 +176,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("Mamont",Mamont);
 		request.setAttribute("car_number",car_number);
 		request.setAttribute("result",result);
-		request.getRequestDispatcher("settlementAction2.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/settlementAction2.jsp").forward(request, response);
 	 } if(result == -2){
 		 response.sendRedirect("history.back()");
 		  System.out.println("정산2 에러");
@@ -192,7 +192,7 @@ public class parkingOutcontroller extends HttpServlet{
 		request.setAttribute("Mamont",Mamont);
 		request.setAttribute("car_number",car_number);
 		request.setAttribute("result",result);
-		request.getRequestDispatcher("settlementAction.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/settlementAction.jsp").forward(request, response);
 		
 	}else {
 	int cashs = Integer.parseInt(cash);
@@ -205,28 +205,28 @@ public class parkingOutcontroller extends HttpServlet{
 			request.setAttribute("mamont",mamont);
 			request.setAttribute("Mamont",Mamont);
 		request.setAttribute("car_number",car_number);
-		request.getRequestDispatcher("card.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/card.jsp").forward(request, response);
 	  }else if(results > cashs){
 
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("result",results);
-			request.getRequestDispatcher("settlementAction2.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/settlementAction2.jsp").forward(request, response);
 	  }else if(results < cashs){
 	
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("to",to);
-			request.getRequestDispatcher("change.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/change.jsp").forward(request, response);
 	  }else if(cash == null || cash == "") {
 	
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("result",results);
-			request.getRequestDispatcher("settlementAction2.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/settlementAction2.jsp").forward(request, response);
 	  }}
 }else if(command.trim().equals("cash")) {
  	String mamont = (String)request.getParameter("mamont");
@@ -241,7 +241,7 @@ public class parkingOutcontroller extends HttpServlet{
 		request.setAttribute("Mamont",Mamont);
 		request.setAttribute("car_number",car_number);
 		request.setAttribute("result",result);
-		request.getRequestDispatcher("settlementAction.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/settlementAction.jsp").forward(request, response);
 		
 	}else {
 	int cashs = Integer.parseInt(cash);
@@ -255,28 +255,28 @@ public class parkingOutcontroller extends HttpServlet{
 			request.setAttribute("mamont",mamont);
 			request.setAttribute("Mamont",Mamont);
 		request.setAttribute("car_number",car_number);
-		request.getRequestDispatcher("card.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/card.jsp").forward(request, response);
 	  }else if(results > cashs){
 		
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("result",result);
-			request.getRequestDispatcher("settlementAction.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/settlementAction.jsp").forward(request, response);
 	  }else if(results < cashs){
 
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("to",to);
-			request.getRequestDispatcher("change.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/change.jsp").forward(request, response);
 	  }else if(cash == null || cash == "") {
 
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 		  request.setAttribute("car_number",car_number);
 			request.setAttribute("result",results);
-			request.getRequestDispatcher("settlementAction2.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/settlementAction2.jsp").forward(request, response);
 	  }}
 }else if(command.trim().equals("card")) {
  	String mamont = (String)request.getParameter("mamont");
@@ -288,7 +288,7 @@ public class parkingOutcontroller extends HttpServlet{
 		request.setAttribute("Mamont",Mamont);
 	request.setAttribute("car_number",car_number);
 	request.setAttribute("result",result);
-	request.getRequestDispatcher("card.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/view/card.jsp").forward(request, response);
 	
 }else if(command.trim().equals("50card")) {
  	String mamont = (String)request.getParameter("mamont");
@@ -301,7 +301,7 @@ public class parkingOutcontroller extends HttpServlet{
 	
 	request.setAttribute("car_number",car_number);
 	request.setAttribute("result",result);
-	request.getRequestDispatcher("card.jsp").forward(request, response);
+	request.getRequestDispatcher("/WEB-INF/view/card.jsp").forward(request, response);
 	
 }else if(command.trim().equals("parkingOut")) {
 	String car_number = (String)request.getAttribute("car_number");
@@ -322,7 +322,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 			  request.setAttribute("car_number",car_number);
-				request.getRequestDispatcher("completeOut.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/completeOut.jsp").forward(request, response);
 			
 		  } 
 }else if(command.trim().equals("parkingOut1")) {
@@ -344,7 +344,7 @@ public class parkingOutcontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 			  request.setAttribute("car_number",car_number);
-				request.getRequestDispatcher("completeOut.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/view/completeOut.jsp").forward(request, response);
 			
 		  } 
 		

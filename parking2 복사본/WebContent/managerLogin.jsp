@@ -97,7 +97,7 @@ height:750px;
 <body>	
 <%if(ID1 != null) {%>
 <h3>관리자 ${ID1}님 환영합니다.</h3> 
- <a href="sessionLogout.jsp">로그아웃</a>
+ <a href="/WEB-INF/view/sessionLogout.jsp">로그아웃</a>
  <%} %>
  
  	<div class="header" style="text-align:center;">

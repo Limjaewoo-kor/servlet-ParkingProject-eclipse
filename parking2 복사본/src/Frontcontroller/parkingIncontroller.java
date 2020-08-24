@@ -35,7 +35,7 @@ public class parkingIncontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 				request.setAttribute("member_car",member_car);
-				request.getRequestDispatcher("error2.jsp").forward(request, response);  //
+				request.getRequestDispatcher("/WEB-INF/view/error2.jsp").forward(request, response);  //
 			}else {
 			Parking parkingDTO = new Parking();
 			parkingDTO.setCar_number(member_car);
@@ -55,7 +55,7 @@ public class parkingIncontroller extends HttpServlet{
 				request.setAttribute("mamont",mamont);
 				request.setAttribute("Mamont",Mamont);
 				request.setAttribute("member_car",member_car);
-				request.getRequestDispatcher("error.jsp").forward(request, response);  //이미 입차중
+				request.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(request, response);  //이미 입차중
 	
 		  }
 		  
@@ -160,7 +160,7 @@ public class parkingIncontroller extends HttpServlet{
 						request.setAttribute("mamont",mamont);
 						request.setAttribute("Mamont",Mamont);
 				
-						request.getRequestDispatcher("completeIn.jsp").forward(request, response); 
+						request.getRequestDispatcher("/WEB-INF/view/completeIn.jsp").forward(request, response); 
 				  }
 			}
 			else if(result == -1){
@@ -177,7 +177,7 @@ public class parkingIncontroller extends HttpServlet{
 						request.setAttribute("mamont",mamont);
 						request.setAttribute("Mamont",Mamont);
 					 
-						request.getRequestDispatcher("completeIn.jsp").forward(request, response); 
+						request.getRequestDispatcher("/WEB-INF/view/completeIn.jsp").forward(request, response); 
 				  }
 		  }
 			if(result == -2) {

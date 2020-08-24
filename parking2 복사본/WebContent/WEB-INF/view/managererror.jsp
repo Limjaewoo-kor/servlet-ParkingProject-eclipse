@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% 
-	String Mamont = (String)request.getAttribute("Mamont");
-	String mamont = (String)request.getAttribute("mamont");
-%>
+    
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8");%>
+<% 			String mamont = (String)request.getAttribute("mamont");
+			String Mamont = (String)request.getAttribute("Mamont");
+
+			%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +46,6 @@ body {
 		padding-top:50px;
 		font-size:25px;
 		font-weight:bolder;
-		border-bottom:solid 1px white;
 	}
 	.header-logo{
 	margin-bottom:10px;
@@ -50,15 +54,7 @@ body {
   width: auto;
   height: auto;
 	}
-.row{
-display:flex;
-height:700px;
 
-justify-content:center;
-align-items:center;
-
-color:gray;
-}
 	.btn {
 border:1x solid #ff0080;    /*---테두리 정의---*/
 background-Color:#ffe6f2;   /*--백그라운드 정의---*/
@@ -82,31 +78,30 @@ height:750px;
 	display: flex;
 	justify-content:center;
 		align-items:center;
-		color:gray;
+		color:white;
 }
-
 
     </style>
 </head>
 <body>	
-		<div class="header" style="text-align:center;">
+ <div class="header" style="text-align:center;">
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+					현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+		
 		</div>
 	</div>
-	 <div class="row">
-	<form method="post" action="regulerJoinComplete.woo" class="form1">
-		<h3 style="text-align: center;">회원 가입 </h3>
-			<input type="text" placeholder="차 번호 " name="car_number" maxlength="20" pattern="(\d?)(\d{2})([가-힣])(\d{4})" style="margin-left:30px;">
-			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-			<input type= hidden name ="mamont" value="<%=mamont%>">
-			<input type= "submit" class="btn" value="회원 가입" style="margin-left:30px;">
-	</form>
-	</div>
-	
- <footer>
+ 
+<form action="/WEB-INF/view/managerLogin.jsp" method="post" class="form1">
+		잘못된 입력입니다.
+		
+	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+	 	<input type= hidden name ="mamont" value="<%=mamont%>">
+		<input type= "submit" class="btn" value="돌아가기" style="margin-left:30px;">
+</form>
+ 
+ 	 <footer>
         <div class="column">
                 <div class="footer-box">
                     <div class="footer">
@@ -115,5 +110,7 @@ height:750px;
                 </div>
             </div>
     </footer>
+ 
+	
 </body>
 </html>

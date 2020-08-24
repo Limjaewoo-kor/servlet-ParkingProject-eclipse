@@ -156,15 +156,15 @@ background-color:white;
 		<div class="title">
 			<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+			현재 분당 금액 :<%=mamont%>  월 금액 :<%=Mamont%> 
 		</div>
-	</div>
+	</div>  
 	<div class="container">
 		<div class="content">
 			<div class="in">
 				<div class="column">			
 					<form action="parkingCheck.lim" method="post">
-						<label>입차 번호 </label><input type="text" style="width:200px; height:50px;"  placeholder="차량번호" name="member_car" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
+						<label>입차 번호 </label><input type="text" style="width:200px; height:50px;"  placeholder="00가0000" name="member_car" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
 						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						<input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type= submit name ="member_car" class="btn" value="입차">
@@ -174,7 +174,7 @@ background-color:white;
 			<div class="out">
 				<div class="column">
 					<form action="parkingCheck1.jae" method="post">
-						<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="차량번호" name="car_number" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
+						<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="00가0000" name="car_number" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
 						 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						 <input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type= "submit" name ="car_number" class="btn" value="출차">
