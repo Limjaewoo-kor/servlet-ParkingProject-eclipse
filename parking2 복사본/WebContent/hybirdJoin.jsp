@@ -97,7 +97,7 @@ height:750px;
 		</div>
 	</div>
 	 <div class="row">
-	<form method="post" action="hybirdJoin.lim" class="form1">
+	<form method="post" action="hybirdJoin.hy" class="form1">
 		<h3 style="text-align: center;">차량 가입 화면</h3>
 			<input type="text" placeholder="차 번호 " name="car_number" maxlength="20" pattern="(\d?)(\d{2})([가-힣])(\d{4})" style="margin-left:30px;" >
 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 

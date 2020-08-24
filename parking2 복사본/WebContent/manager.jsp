@@ -5,6 +5,7 @@
 	String Password1 = (String)request.getAttribute("Password1");
 	String Mamont = (String)request.getAttribute("Mamont");
 	String mamont = (String)request.getAttribute("mamont");
+	
 %>
 <%session.setAttribute("ID", request.getAttribute("ID1"));%>
 <%session.setAttribute("Password", request.getAttribute("Password1"));%>
@@ -100,7 +101,7 @@
 	
 		   <div class="title2" >
 		  <div class="title2_name">-회원 정보- </div>
-		   <form method="post" action="memberLog.lim" style="margin-left:20px;">
+		   <form method="post" action="memberLog.man" style="margin-left:20px;">
 		   		<label>mem_id : </label><input type="text"  placeholder="mem_id" name="mem_id" maxlength="25" style="margin-left:20px;">
 				<input type= submit value="특정 로그 삭제" style="margin-left:20px;">
 								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
@@ -165,7 +166,7 @@
       
       <div class="title2" >
 		   -주차장 이용 로그-
-		    <form method="post" action="parking2Log.lim" style="margin-left:20px;">
+		    <form method="post" action="parking2Log.man" style="margin-left:20px;">
 		   		<label>parking_id : </label><input type="text"  placeholder="parking_id" name="parking_id" maxlength="25" style="margin-left:20px;">
 				<input type= submit value="특정 로그 삭제" style="margin-left:20px;">
 								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
@@ -173,7 +174,7 @@
 				<input type= hidden name ="ID1" value="${ID1}">
 				<input type= hidden name ="Password1" value="${Password1}">
 			</form>
-		   <form method="post" action="parkingDel.lim">
+		   <form method="post" action="parkingDel.man">
 				<input type= submit value="주자창 로그 전체 삭제" style="margin-left:20px;">
 								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						 	<input type= hidden name ="mamont" value="<%=mamont%>">

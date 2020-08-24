@@ -1,25 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%
-  session.getAttribute("ID");
-  session.getAttribute("Password");
-	String ID1 = (String)request.getParameter("ID1");
-	
-	String Mamont = (String)request.getParameter("Mamont");
-	String mamont = (String)request.getParameter("mamont");
-
-
-%>
+    
+<%@ page import="parking.ParkingDAO" %>
 <%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8");%>
+
+<% 
+	String Mamont = (String)request.getAttribute("Mamont");
+	String mamont = (String)request.getAttribute("mamont");
+%>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="Stylesheet" href="css/bootstrap.css">
-<link rel="Stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
-  <style>
+ <style>
+ <style>
  @media only screen and (max-width: 1715px){
 
 	form{
@@ -49,7 +50,6 @@ body {
 		padding-top:50px;
 		font-size:25px;
 		font-weight:bolder;
-		border-bottom:solid 1px white;
 	}
 	.header-logo{
 	margin-bottom:10px;
@@ -58,15 +58,7 @@ body {
   width: auto;
   height: auto;
 	}
-.row{
-display:flex;
-height:700px;
 
-justify-content:center;
-align-items:center;
-
-color:gray;
-}
 	.btn {
 border:1x solid #ff0080;    /*---테두리 정의---*/
 background-Color:#ffe6f2;   /*--백그라운드 정의---*/
@@ -90,17 +82,18 @@ height:750px;
 	display: flex;
 	justify-content:center;
 		align-items:center;
-		color:gray;
+		color:white;
 }
 
 
     </style>
 </head>
-<body>	
-<%if(ID1 != null) {%>
-<h3>관리자 ${ID1}님 환영합니다.</h3> 
- <a href="sessionLogout.jsp">로그아웃</a>
- <%} %>
+<body>
+ 
+ <%
+ String car_number = (String)request.getAttribute("car_number");
+ String to = String.valueOf(request.getAttribute("to"));
+ %>
  
  	<div class="header" style="text-align:center;">
 		<div class="title">
@@ -109,24 +102,24 @@ height:750px;
 			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
- 	<div class="row">
-		<form action = "managerAction.lim" method="post" class="form1">
-			<h3 style="text-align: center;">관리자 로그인</h3>
-			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 				 	
-			<input type= hidden name ="mamont" value="<%=mamont%>">
-			<input type="text" placeholder="아이디" name="ID" maxlength="20" style="margin-left:30px;">	
-			<input type="password" placeholder="비밀번호" name="Password" maxlength="20" style="margin-left:30px;">
-			<input type= "submit" class="btn" value="로그인" style="margin-left:30px;">
-		</form>						
-	</div>
- 	<footer>
+	 <form method="post" action="regulerJointo.woo" class="form1">
+ 	차량번호는 ${car_number}입니다.<br><br>
+ 	잔돈은 ${to}원 입니다.<br><br>
+  	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+	<input type= hidden name ="mamont" value="<%=mamont%>">
+ 	<input type= "hidden" name="car_number" value="${car_number}">
+	<input type= "submit"  value="받기" class="btn" style="margin-left:30px;">
+</form>
+	
+<footer>
         <div class="column">
-        	<div class="footer-box">
-				<div class="footer">
-                    <br><br>서울 금천구 가산디지털1로 
+                <div class="footer-box">
+                    <div class="footer">
+                        <br><br>서울 금천구 가산디지털1로 
+                    </div>
                 </div>
             </div>
-       	</div>
     </footer>
+	
 </body>
 </html>

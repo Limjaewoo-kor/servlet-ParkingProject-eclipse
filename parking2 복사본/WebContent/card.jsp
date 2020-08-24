@@ -9,7 +9,6 @@
 	String mamont = (String)request.getAttribute("mamont");
 %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,40 +81,35 @@ height:750px;
 		align-items:center;
 		color:white;
 }
-
-
     </style>
 </head>
 <body>
- 
+
  <%
-	  String car_number = (String)request.getAttribute("car_number");
+	String car_number = (String)request.getAttribute("car_number");
  %>
- <div class="header" style="text-align:center;">
+ 	<div class="header" style="text-align:center;">
 		<div class="title">
-		<img src="images/jj.jpeg" class="header-logo">
+			<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
 			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
-
- <form method="post" action="parkingOut1.lim" class="form1">
-  결제가 완료 되었습니다.<br><br>
+ 	<form method="post" action="parkingOut1.jae" class="form1">
+ 		결제가 완료 되었습니다.<br><br>
  	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 		<input type= hidden name ="mamont" value="<%=mamont%>">
  		<input type= "hidden" name="car_number" value="${car_number}">
 		<input type= "submit"  value="받기" class="btn" style="margin-left:30px;">
-</form>
-
-<footer>
+	</form>
+	<footer>
         <div class="column">
-                <div class="footer-box">
-                    <div class="footer">
-                        <br><br>서울 금천구 가산디지털1로 
-                    </div>
-                </div>
-            </div>
+        	<div class="footer-box">
+        		<div class="footer">
+              		<br><br>서울 금천구 가산디지털1로 
+             	</div>
+         	</div>
+   		</div>
     </footer>
-	
 </body>
 </html>

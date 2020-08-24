@@ -1,25 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ page import="parking.ParkingDAO" %>
-    <%@ page import="member.MemberDAO" %>
-<%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8");%>
-
-<%
+  <%
+  session.getAttribute("ID");
+  session.getAttribute("Password");
+	String ID1 = (String)request.getParameter("ID1");
 	String Mamont = (String)request.getParameter("Mamont");
 	String mamont = (String)request.getParameter("mamont");
+
 %>
+<%@ page import="java.io.PrintWriter" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="Stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/custom.css">
+<link rel="Stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
- <style>
- <style>
+  <style>
  @media only screen and (max-width: 1715px){
 
 	form{
@@ -60,7 +58,7 @@ body {
 	}
 .row{
 display:flex;
-height:200px;
+height:700px;
 
 justify-content:center;
 align-items:center;
@@ -90,13 +88,18 @@ height:750px;
 	display: flex;
 	justify-content:center;
 		align-items:center;
-		color:white;
+		color:gray;
 }
 
 
     </style>
 </head>
-<body>		
+<body>	
+<%if(ID1 != null) {%>
+<h3>관리자 ${ID1}님 환영합니다.</h3> 
+ <a href="sessionLogout.jsp">로그아웃</a>
+ <%} %>
+ 
  	<div class="header" style="text-align:center;">
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
@@ -104,37 +107,24 @@ height:750px;
 			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
- 
- <div class="row">
- 1개월 금액은 <%=Mamont%>원 입니다.<br><br>
- 결제 방식을 선택해주세요.<br>
- </div>
-  <div class="row">
-	<form method="post" action="regulerJoinCash.lim">
-	<label>차량 번호: </label><input type="text" style="margin-top:20px;" placeholder="차량번호" name="car_number" pattern="(\d?)(\d{2})([가-힣])(\d{4})"><br>
-	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,10}">
-		<input type= "hidden" name="Mamont" value="<%=Mamont%>">
-		 <input type= hidden name ="mamont" value="<%=mamont%>">
-			<input type= "submit" class="btn" value="결제" style="margin-left:30px;">
-	</form>
+ 	<div class="row">
+		<form action = "managerAction.man" method="post" class="form1">
+			<h3 style="text-align: center;">관리자 로그인</h3>
+			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 				 	
+			<input type= hidden name ="mamont" value="<%=mamont%>">
+			<input type="text" placeholder="아이디" name="ID" maxlength="20" style="margin-left:30px;">	
+			<input type="password" placeholder="비밀번호" name="Password" maxlength="20" style="margin-left:30px;">
+			<input type= "submit" class="btn" value="로그인" style="margin-left:30px;">
+		</form>						
 	</div>
-	
-	<div class="row">
-	<form method="post" action="regulerJoinCard.lim">
-			<input type= "hidden" name="Mamont" value="<%=Mamont%>">
-		 	<input type= hidden name ="mamont" value="<%=mamont%>">
-	<input type= "submit" class="btn" style="margin-top:20px; margin-left:30px;" class="card" value="카드 결제">
-	</form>
-	</div>
-	
- <footer>
+ 	<footer>
         <div class="column">
-                <div class="footer-box">
-                    <div class="footer">
-                        <br><br>서울 금천구 가산디지털1로 
-                    </div>
+        	<div class="footer-box">
+				<div class="footer">
+                    <br><br>서울 금천구 가산디지털1로 
                 </div>
             </div>
+       	</div>
     </footer>
 </body>
 </html>

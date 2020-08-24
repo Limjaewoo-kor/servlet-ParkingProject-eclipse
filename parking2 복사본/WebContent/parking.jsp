@@ -8,8 +8,6 @@
 	String Mamont = (String)request.getParameter("Mamont");
 %>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,35 +133,30 @@ margin-top:150px;
 width:130px;
 background-color:white;
 }
-
-
-
     </style>
 </head>
 <body>
-<%if(ID != null) {%>
-<h3>관리자 ${ID}님 환영합니다.</h3> 
-<form method="post" action="managerAction.lim">
-	<input type= submit value="관리자페이지로">
-	 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-	<input type= hidden name ="mamont" value="<%=mamont%>">
-	<input type= hidden name ="ID" value="${ID}">
-	<input type= hidden name ="Password" value="${Password}">
-</form>
-<form method="post" action="sessionLogout.jsp">
- <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-	<input type= hidden name ="mamont" value="<%=mamont%>">
-	<input type= submit value="로그아웃">
+	<%if(ID != null) {%>
+	<h3>관리자 ${ID}님 환영합니다.</h3> 
+	<form method="post" action="managerAction.man">
+		<input type= submit value="관리자페이지로">
+	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+		<input type= hidden name ="mamont" value="<%=mamont%>">
+		<input type= hidden name ="ID" value="${ID}">
+		<input type= hidden name ="Password" value="${Password}">
+	</form>
+	<form method="post" action="sessionLogout.jsp">
+		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+		<input type= hidden name ="mamont" value="<%=mamont%>">
+		<input type= submit value="로그아웃">
+	</form>
 
-</form>
-
- <%} %>
+ 	<%} %>
 	<div class="header" style="text-align:center;">
 		<div class="title">
-		<img src="images/jj.jpeg" class="header-logo">
+			<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-					현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
-		
+			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
 	<div class="container">
@@ -172,42 +165,38 @@ background-color:white;
 				<div class="column">			
 					<form action="parkingCheck.lim" method="post">
 						<label>입차 번호 </label><input type="text" style="width:200px; height:50px;"  placeholder="차량번호" name="member_car" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
-							 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
+						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+						<input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type= submit name ="member_car" class="btn" value="입차">
 					</form>		
 				</div>
 			</div>
 			<div class="out">
 				<div class="column">
-						<form action="parkingCheck1.lim" method="post">
-							<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="차량번호" name="car_number" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
-						 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
-							<input type= "submit" name ="car_number" class="btn" value="출차">
-						</form>
+					<form action="parkingCheck1.jae" method="post">
+						<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="차량번호" name="car_number" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
+						 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+						 <input type= hidden name ="mamont" value="<%=mamont%>">
+						<input type= "submit" name ="car_number" class="btn" value="출차">
+					</form>
 				</div>
 			</div>
 		</div>
-		<div>
-		
+		<div class="content2">
+			<a href="http://90factory.com/"><img src="images/90.png" class="content2-logo"></a>
 		</div>
-	
-	<div class="content2">
-		<a href="http://90factory.com/"><img src="images/90.png" class="content2-logo"></a>
-	</div>
-	<div class="content3">
-	<div class = "join">
+		<div class="content3">
+			<div class = "join">
 				<div class ="column">
-				<div class = "manager">
-				<div class="column">
-					<form action = "managerLogin.jsp" method="post">
-					 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
-						<input type= "submit" class="btn"  value="관리자 로그인">
-					</form>						
-				</div>
-			</div>
+					<div class = "manager">
+						<div class="column">
+							<form action = "managerLogin.jsp" method="post">
+					 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+						 		<input type= hidden name ="mamont" value="<%=mamont%>">
+								<input type= "submit" class="btn"  value="관리자 로그인">
+							</form>						
+						</div>
+					</div>
 					<form action = "regulerJoinAction.jsp" method="post">
 						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						<input type= hidden name ="mamont" value="<%=mamont%>">
@@ -216,23 +205,22 @@ background-color:white;
 				</div>
 				<div class ="column">
 					<form action = "hybirdJoin.jsp" method="post">
-						 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
+						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+						<input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type="submit"  class="btn" value="하이브리드 등록" style="margin-left:50px;">
 					</form>	
 				</div>
 			</div>
-	
+		</div>
 	</div>
-	</div>
-	 <footer>
-        <div class="column">
-                <div class="footer-box">
-                    <div class="footer">
-                        <br><br>서울 금천구 가산디지털1로 
-                    </div>
-                </div>
-            </div>
+	<footer>
+    	<div class="column">
+        	<div class="footer-box">
+            	<div class="footer">
+                	<br><br>서울 금천구 가산디지털1로 
+            	</div>
+         	</div>
+    	</div>
     </footer>
 </body>
 </html>

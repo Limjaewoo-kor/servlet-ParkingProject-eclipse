@@ -114,7 +114,7 @@ height:750px;
  결제 방식 및 금액을 투입해주세요.<br>
  </div>
   <div class="row">
-	<form method="post" action="cash.lim" >
+	<form method="post" action="cash.jae" >
 	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,10}" >
 		<input type= "hidden" name="car_number" value="${car_number}">
 		<input type= "hidden" name="result" value="${result}">
@@ -126,7 +126,7 @@ height:750px;
 		
 		
 		  <div class="row">
-		<form method="post" action="card.lim" >
+		<form method="post" action="card.jae" >
 						 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						 	<input type= hidden name ="mamont" value="<%=mamont%>">
 			<input type= "hidden" name="car_number" value="${car_number}">

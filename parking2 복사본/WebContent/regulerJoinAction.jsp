@@ -2,13 +2,15 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import="parking.ParkingDAO" %>
+    <%@ page import="member.MemberDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
 
-<% 
-	String Mamont = (String)request.getAttribute("Mamont");
-	String mamont = (String)request.getAttribute("mamont");
+<%
+	String Mamont = (String)request.getParameter("Mamont");
+	String mamont = (String)request.getParameter("mamont");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +49,7 @@ body {
 		padding-top:50px;
 		font-size:25px;
 		font-weight:bolder;
+		border-bottom:solid 1px white;
 	}
 	.header-logo{
 	margin-bottom:10px;
@@ -55,7 +58,15 @@ body {
   width: auto;
   height: auto;
 	}
+.row{
+display:flex;
+height:200px;
 
+justify-content:center;
+align-items:center;
+
+color:gray;
+}
 	.btn {
 border:1x solid #ff0080;    /*---테두리 정의---*/
 background-Color:#ffe6f2;   /*--백그라운드 정의---*/
@@ -85,31 +96,38 @@ height:750px;
 
     </style>
 </head>
-<body>
- 
- <%
- String car_number = (String)request.getAttribute("car_number");
- String to = String.valueOf(request.getAttribute("to"));
- %>
- <div class="header" style="text-align:center;">
+<body>		
+ 	<div class="header" style="text-align:center;">
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
 			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		</div>
 	</div>
-	
  
- <form method="post" action="parkingOut1.lim" class="form1">
- 차량번호는 ${car_number}입니다.<br><br>
- 잔돈은  ${to}원 입니다.<br><br>
- 		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-		<input type= hidden name ="mamont" value="<%=mamont%>">
- 		<input type= "hidden" name="car_number" value="${car_number}">
-		<input type= "submit"  value="받기" class="btn" style="margin-left:30px;">
-</form>
-
-<footer>
+ <div class="row">
+ 1개월 금액은 <%=Mamont%>원 입니다.<br><br>
+ 결제 방식을 선택해주세요.<br>
+ </div>
+  <div class="row">
+	<form method="post" action="regulerJoinCash.woo">
+	<label>차량 번호: </label><input type="text" style="margin-top:20px;" placeholder="차량번호" name="car_number" pattern="(\d?)(\d{2})([가-힣])(\d{4})"><br>
+	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,10}">
+		<input type= "hidden" name="Mamont" value="<%=Mamont%>">
+		 <input type= hidden name ="mamont" value="<%=mamont%>">
+			<input type= "submit" class="btn" value="결제" style="margin-left:30px;">
+	</form>
+	</div>
+	
+	<div class="row">
+	<form method="post" action="regulerJoinCard.woo">
+			<input type= "hidden" name="Mamont" value="<%=Mamont%>">
+		 	<input type= hidden name ="mamont" value="<%=mamont%>">
+	<input type= "submit" class="btn" style="margin-top:20px; margin-left:30px;" class="card" value="카드 결제">
+	</form>
+	</div>
+	
+ <footer>
         <div class="column">
                 <div class="footer-box">
                     <div class="footer">
@@ -118,7 +136,5 @@ height:750px;
                 </div>
             </div>
     </footer>
-	
-	
 </body>
 </html>
