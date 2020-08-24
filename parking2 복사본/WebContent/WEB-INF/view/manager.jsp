@@ -3,13 +3,14 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
+    <%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String ID1 = (String)request.getAttribute("ID1");
 	String Password1 = (String)request.getAttribute("Password1");
 	String Mamont = (String)request.getAttribute("Mamont");
 	String mamont = (String)request.getAttribute("mamont");
-	List<memberlog> list = (List<memberlog>)request.getAttribute("memlist");
-	List<parkinglog> listp = (List<parkinglog>)request.getAttribute("parklist");
+ 	List<memberlog> list = (List<memberlog>)request.getAttribute("memlist");  
+ 	List<parkinglog> listp = (List<parkinglog>)request.getAttribute("parklist"); 
 
 %>
 <%session.setAttribute("ID", request.getAttribute("ID1"));%>
@@ -27,6 +28,8 @@
       body {
      	font-size:15px;
         font-weight:bolder;
+       
+       
       }
       div{
       display:flex;
@@ -62,6 +65,7 @@
 }
 	%>
 <body>
+
 <h3>관리자 ${ID1}님 환영합니다.</h3> 
  
 <form method="post" action="parking.jsp">
@@ -86,7 +90,7 @@
 		현재 10분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
 		<div class="nav">
 		<form method="post" action="mamont.jsp" style="margin-left:20px;">
-		   		<label>10분당 금액 : </label><input type="text"  placeholder="초기값 1,000원" name="mamont" maxlength="25" pattern=".{1,10}" style="margin-left:20px;">		
+		   		<label>10분당 금액 : </label><input type="text"  placeholder="초기값 1,000원" name="mamont" maxlength="8" pattern=".{1,10}" style="margin-left:20px;">		
 					 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 					 		<input type= hidden name ="mamont" value="<%=mamont%>">
 				<input type= hidden name ="ID1" value="<%=ID1%>">
@@ -95,7 +99,7 @@
 			
 			</form>
 			<form method="post" action="mamont2.jsp" style="margin-left:20px;">
-		   		<label>월 금액 : </label><input type="text"  placeholder="초기값 100,000원" name="Mamont" maxlength="25" pattern=".{1,10}" style="margin-left:20px;">
+		   		<label>월 금액 : </label><input type="text"  placeholder="초기값 100,000원" name="Mamont" maxlength="8" pattern=".{1,10}" style="margin-left:20px;">
 						 	<input type= hidden name ="mamont" value="<%=mamont%>">
 						 		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 				<input type= hidden name ="ID1" value="<%=ID1%>">
@@ -127,8 +131,8 @@
 
 <% 	for(memberlog m : list) {
 		pageContext.setAttribute("m", m);
-%>
-
+%>  
+<%-- <c:forEach var = "m" items="${list}">  --%>
       <tr>
             <td>${m.mem_id}</td>
             <td>${m.member_time}</td>
@@ -136,7 +140,8 @@
             <td>${m.hybird_car}</td>
             <td>${m.reguler_car}</td>
       </tr>
-<%} %>
+    <%--  </c:forEach>  --%>
+  <%} %> 
       </table>
       
       <div class="title2" >
@@ -166,11 +171,11 @@
             <td>mem_id</td>
       </tr>
  
-<% 	for(parkinglog p : listp) {
+ <% 	for(parkinglog p : listp) {
 		pageContext.setAttribute("p", p);
 	
-%>
-
+%>  
+	<%-- <c:forEach var = "p" items="${listp}"> --%>
       <tr>
             <td>${p.parking_id}</td>
             <td>${p.car_number}</td>
@@ -178,7 +183,8 @@
             <td>${p.out_time}</td>
             <td>${p.mem_id}</td>
       </tr>
-<%} %>
+     <%--  </c:forEach> --%>
+ <%} %> 
   
       </table>
 		

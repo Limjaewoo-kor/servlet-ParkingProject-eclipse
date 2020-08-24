@@ -19,7 +19,7 @@ import parking.ParkingDAO;
 
 
 @WebServlet("*.lim")
-public class parkingIncontroller extends HttpServlet{
+public class parkingInCheckController extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -27,9 +27,10 @@ public class parkingIncontroller extends HttpServlet{
 		String uri = request.getRequestURI();
 		String command = uri.substring(uri.lastIndexOf("/") +1, uri.lastIndexOf(".lim"));
 		
-		if(command != null && command.trim().equals("parkingCheck")) {
+		if(command != null && command.trim().equals("parkingInCheck")) {
 		 	String mamont = (String)request.getParameter("mamont");
 			String Mamont = (String)request.getParameter("Mamont");
+			
 			String member_car = request.getParameter("member_car");
 			if(member_car == null || member_car == "") {
 				request.setAttribute("mamont",mamont);

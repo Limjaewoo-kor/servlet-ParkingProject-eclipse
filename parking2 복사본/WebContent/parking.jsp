@@ -16,25 +16,13 @@
 <link rel="stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
  <style>
- @media only screen and (max-width: 1715px){
-
-	form{
-		display:flex;
-		align-items:center;
-	}
-	label{
-	display:flex;
-	align-items:center;
-	}
-
-}  
+ 
 
 body {	
-	background-color:black;
+		background-color:black;
      	font-size:20px;
       	border:0;
       	padding:0;
-       
         height: 100%;
       	width:100%;
         background-size:cover;
@@ -78,10 +66,10 @@ background-size: 100% 350px;
 
 	}
 	.content2{
+	
 	background-image:url("images/cc.jpg") ;
-background-size: 100% 350px;
-
-	  display: flex;
+	background-size: 100% 350px;
+	display: flex;
     flex-direction: cloumn;
     flex-wrap: wrap;
     width: 100%;
@@ -133,6 +121,58 @@ margin-top:150px;
 width:130px;
 background-color:white;
 }
+
+@media only screen and (max-width: 1715px){
+
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+	
+	}
+ 
+@media only screen and (max-width: 1000px) {
+
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+body{
+background-color:#f8363662;;;
+color:black;
+}
+.header{
+color:black;
+}
+.footer-box{
+background-color:#f8363662;;;}
+	
+	
+	.content2{
+	background-image:url("images/q1.jpg") ;
+	background-size: 100% 350px;
+	display: flex;
+    flex-direction: cloumn;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 500px;
+    height:350px;
+   justify-content:center;
+	align-items:center;
+	}
+
+} 
+  
     </style>
 </head>
 <body>
@@ -163,8 +203,8 @@ background-color:white;
 		<div class="content">
 			<div class="in">
 				<div class="column">			
-					<form action="parkingCheck.lim" method="post">
-						<label>입차 번호 </label><input type="text" style="width:200px; height:50px;"  placeholder="00가0000" name="member_car" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
+					<form action="parkingInCheck.lim" method="post">
+						<label>입차 번호 </label><input type="text" style="width:200px; height:50px;"  placeholder="00가0000" name="member_car"  pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
 						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						<input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type= submit name ="member_car" class="btn" value="입차">
@@ -174,7 +214,7 @@ background-color:white;
 			<div class="out">
 				<div class="column">
 					<form action="parkingCheck1.jae" method="post">
-						<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="00가0000" name="car_number" pattern=".{6,8}"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
+						<label>출차 번호 </label><input type="text" style="width:200px; height:50px;" placeholder="00가0000" name="car_number"   pattern="(\d?)(\d{2})([가-힣])(\d{4})">
 						 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						 <input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type= "submit" name ="car_number" class="btn" value="출차">
@@ -183,7 +223,7 @@ background-color:white;
 			</div>
 		</div>
 		<div class="content2">
-			<a href="http://90factory.com/"><img src="images/90.png" class="content2-logo"></a>
+			
 		</div>
 		<div class="content3">
 			<div class = "join">
@@ -197,11 +237,13 @@ background-color:white;
 							</form>						
 						</div>
 					</div>
+						<div class="column">
 					<form action = "regulerJoinAction.jsp" method="post">
 						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 						<input type= hidden name ="mamont" value="<%=mamont%>">
 						<input type="submit" class="btn" value="정기권 회원가입" style="margin-left:50px;">
 					</form>
+					</div>
 				</div>
 				<div class ="column">
 					<form action = "hybirdJoin.jsp" method="post">

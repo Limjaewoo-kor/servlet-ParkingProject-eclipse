@@ -12,12 +12,7 @@
 <link rel="Stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
   <style>
- @media only screen and (max-width: 1715px){
-
-	form{
-		display:flex;
-		align-items:center;
-	}}
+ 
 
 body {	
 	background-color:black;
@@ -85,7 +80,41 @@ height:750px;
 		color:gray;
 }
 
+@media only screen and (max-width: 1715px){
 
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+	
+	}
+ 
+@media only screen and (max-width: 1000px) {
+
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+body{
+background-color:#f8363662;;;
+color:black;
+}
+.header{
+color:black;
+}
+.footer-box{
+background-color:#f8363662;;;}
+	}
     </style>
 </head>
 <body>	

@@ -15,55 +15,49 @@
 <link rel="stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
  <style>
- <style>
- @media only screen and (max-width: 1715px){
-
-	form{
-		display:flex;
-		align-items:center;
-	}}
 
 body {	
 	background-color:black;
-     	font-size:20px;
-      	border:0;
-      	padding:0;
-       
-        height: 100%;
-      	width:100%;
-        background-size:cover;
-        font-weight:bolder;
+    font-size:20px;
+    border:0;
+    padding:0;
+    height: 100%;
+    width:100%;
+    background-size:cover;
+    font-weight:bolder;
       }
-	div{
+      
+div{
 	display:flex;
 	}
-	.header{
+	
+.header{
 	color:white;
-		display:flex;
-		height:15vh;
-		justify-content:center;
-		padding-top:50px;
-		font-size:25px;
-		font-weight:bolder;
+	display:flex;
+	height:15vh;
+	justify-content:center;
+	padding-top:50px;
+	font-size:25px;
+	font-weight:bolder;
 	}
-	.header-logo{
+.header-logo{
 	margin-bottom:10px;
-  max-width:230px;
-  max-height:95px;
-  width: auto;
-  height: auto;
+  	max-width:230px;
+  	max-height:95px;
+  	width: auto;
+  	height: auto;
 	}
 
-	.btn {
-border:1x solid #ff0080;    /*---테두리 정의---*/
-background-Color:#ffe6f2;   /*--백그라운드 정의---*/
-font:18px 굴림;      /*--폰트 정의---*/
-font-weight:bold;   /*--폰트 굵기---*/
-color:#ff0080;    /*--폰트 색깔---*/
-width:130px;
-height:50px;  /*--버튼 크기---*/
-}
-	.footer-box{
+.btn {
+	border:1x solid #ff0080;    /*---테두리 정의---*/
+	background-Color:#ffe6f2;   /*--백그라운드 정의---*/
+	font:18px 굴림;      /*--폰트 정의---*/
+	font-weight:bold;   /*--폰트 굵기---*/
+	color:#ff0080;    /*--폰트 색깔---*/
+	width:130px;
+	height:50px;  /*--버튼 크기---*/
+	}
+.footer-box{
 	display: flex;
 	justify-content:center;
 	width:100%;
@@ -73,13 +67,47 @@ height:50px;  /*--버튼 크기---*/
 	}
 
 .form1{
-height:750px;
+	height:750px;
 	display: flex;
 	justify-content:center;
-		align-items:center;
-		color:white;
+	align-items:center;
+	color:white;
 }
+@media only screen and (max-width: 1715px){
 
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+	
+	}
+ 
+@media only screen and (max-width: 1000px) {
+
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+body{
+background-color:#f8363662;
+color:black;
+}
+.header{
+color:black;
+}
+.footer-box{
+background-color:#f8363662;}
+	}
 
     </style>
 </head>

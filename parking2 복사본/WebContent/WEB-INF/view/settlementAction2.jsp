@@ -19,13 +19,6 @@
 <link rel="stylesheet" href="css/custom.css">
 <title>jaewoo park</title>
  <style>
- <style>
- @media only screen and (max-width: 1715px){
-
-	form{
-		display:flex;
-		align-items:center;
-	}}
 
 body {	
 	background-color:black;
@@ -93,7 +86,41 @@ height:750px;
 		color:white;
 }
 
+@media only screen and (max-width: 1715px){
 
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+	
+	}
+ 
+@media only screen and (max-width: 1000px) {
+
+	form{
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+	}
+	label{
+	display:flex;
+	align-items:center;
+	}
+body{
+background-color:#f8363662;;;
+color:black;
+}
+.header{
+color:black;
+}
+.footer-box{
+background-color:#f8363662;;;}
+	}
     </style>
 </head>
 <body>	
@@ -119,7 +146,7 @@ height:750px;
  </div>
  <div class="row">
 	<form method="post" action="50cash.jae">
-	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,10}">
+	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,8}">
 		<input type= "hidden" name="car_number" value="${car_number}">
 		<input type= "hidden" name="result" value="${result}">
 				 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
