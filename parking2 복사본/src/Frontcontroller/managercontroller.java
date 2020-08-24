@@ -24,36 +24,9 @@ public class managercontroller extends HttpServlet{
 		String command = uri.substring(uri.lastIndexOf("/") +1, uri.lastIndexOf(".man"));
 		
 		
-	if(command != null && command.trim().equals("managerAction")) {
-	 	String mamont = (String)request.getParameter("mamont");
-			String Mamont = (String)request.getParameter("Mamont");
-			String ID = "jaewoo";
-		 String Password = "1234";
-		 String ID1 = request.getParameter("ID");
-		 String Password1 = request.getParameter("Password");
-
-		 
-		 if(ID1 == null || Password1 == null) {
-				request.setAttribute("mamont",mamont);
-				request.setAttribute("Mamont",Mamont);
-				request.getRequestDispatcher("managererror.jsp").forward(request, response);
-		}
-		if(ID.equals(ID1) && Password.equals(Password1)) {
-	
-			request.setAttribute("mamont",mamont);
-			request.setAttribute("Mamont",Mamont);
-			request.setAttribute("ID1",ID1);
-			request.setAttribute("Password1",Password1);
-			request.getRequestDispatcher("manager.jsp").forward(request, response);
-			
-		  }else{
-			  request.setAttribute("mamont",mamont);
-				request.setAttribute("Mamont",Mamont);
-				request.getRequestDispatcher("managererror.jsp").forward(request, response);
-		  }
 	
 	
-			  }else if(command.trim().equals("parkingDel")) {
+			  if(command.trim().equals("parkingDel")) {
 					String Mamont = (String)request.getParameter("Mamont");
 					String mamont = (String)request.getParameter("mamont");
 					String ID = request.getParameter("ID1");
@@ -71,7 +44,7 @@ public class managercontroller extends HttpServlet{
 								request.setAttribute("Mamont",Mamont);
 							  	request.setAttribute("ID1",ID);
 								request.setAttribute("Password1",Password);
-								request.getRequestDispatcher("manager.jsp").forward(request, response);
+								request.getRequestDispatcher("managerAction1.log").forward(request, response);
 						  }
 						 
 	 }else if(command.trim().equals("memberLog")) {
@@ -95,7 +68,7 @@ public class managercontroller extends HttpServlet{
 					request.setAttribute("Mamont",Mamont);
 				  	request.setAttribute("ID1",ID);
 					request.setAttribute("Password1",Password);
-					request.getRequestDispatcher("manager.jsp").forward(request, response);
+					request.getRequestDispatcher("managerAction1.log").forward(request, response);
 			  }
 		
 	 }else if(command.trim().equals("parking2Log")) {
@@ -119,7 +92,7 @@ public class managercontroller extends HttpServlet{
 						request.setAttribute("Mamont",Mamont);
 					  	request.setAttribute("ID1",ID);
 						request.setAttribute("Password1",Password);
-						request.getRequestDispatcher("manager.jsp").forward(request, response);
+						request.getRequestDispatcher("managerAction1.log").forward(request, response);
 				  }
 	 
 	 }

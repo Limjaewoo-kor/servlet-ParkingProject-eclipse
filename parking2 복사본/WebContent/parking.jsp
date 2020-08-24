@@ -138,7 +138,7 @@ background-color:white;
 <body>
 	<%if(ID != null) {%>
 	<h3>관리자 ${ID}님 환영합니다.</h3> 
-	<form method="post" action="managerAction.man">
+	<form method="post" action="managerAction.log">
 		<input type= submit value="관리자페이지로">
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 		<input type= hidden name ="mamont" value="<%=mamont%>">

@@ -19,7 +19,7 @@ import parking.ParkingDAO;
 
 
 @WebServlet("*.lim")
-public class frontcontroller extends HttpServlet{
+public class parkingIncontroller extends HttpServlet{
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

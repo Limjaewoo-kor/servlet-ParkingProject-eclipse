@@ -108,7 +108,7 @@ height:750px;
 		</div>
 	</div>
  	<div class="row">
-		<form action = "managerAction.man" method="post" class="form1">
+		<form action = "managerAction.log" method="post" class="form1">
 			<h3 style="text-align: center;">관리자 로그인</h3>
 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 				 	
 			<input type= hidden name ="mamont" value="<%=mamont%>">
