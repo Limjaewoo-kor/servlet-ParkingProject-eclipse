@@ -126,7 +126,7 @@ background-color:#f8363662;;;}
 		
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 	 	<input type= hidden name ="mamont" value="<%=mamont%>">
-		<input type= "submit" value="메인으로 이동하기" class="btn" style="margin-left:30px;">
+		<input type= "submit" value="메인으로" class="btn" style="margin-left:30px;">
 </form>
  
  <footer>

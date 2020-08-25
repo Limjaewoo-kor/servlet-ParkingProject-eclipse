@@ -128,7 +128,7 @@ background-color:#f8363662;;;}
 	 <div class="row">
 	<form method="post" action="regulerJoinComplete.woo" class="form1">
 		<h3 style="text-align: center;">회원 가입 </h3>
-			<input type="text" placeholder="00가0000" name="car_number" maxlength="20" pattern="(\d?)(\d{2})([가-힣])(\d{4})" style="margin-left:30px;">
+			<input type="text" placeholder="00가0000" name="car_number" maxlength="20" style="margin-left:30px;"  pattern="(\d?)(\d{2})([가-힣])(\d{4})">
 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 			<input type= hidden name ="mamont" value="<%=mamont%>">
 			<input type= "submit" class="btn" value="회원 가입" style="margin-left:30px;">

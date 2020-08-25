@@ -82,15 +82,21 @@ public class regulerJoincontroller extends HttpServlet{
 		String Mamont = (String)request.getParameter("Mamont");
 		String mamont = (String)request.getParameter("mamont");
 		String car_number = request.getParameter("car_number");
-
+		
+		if(car_number == null || car_number == "") {
+			request.setAttribute("mamont",mamont);
+			request.setAttribute("Mamont",Mamont);
+			request.setAttribute("member_car",car_number);
+			request.getRequestDispatcher("regulerJoinAction.jsp").forward(request, response);  //
+		}
 		
 		
 		Member memberDTO = new Member();
 		memberDTO.setMember_car(car_number); 
 
+		MemberDAO memberDAO = new MemberDAO();
+		int result = memberDAO.memberJoin(memberDTO);
 		
-			  MemberDAO memberDAO = new MemberDAO();
-			  int result = memberDAO.memberJoin(memberDTO);
 			  if(result == -1){
 				  PrintWriter script = response.getWriter();
 				   script.println("<script>");
