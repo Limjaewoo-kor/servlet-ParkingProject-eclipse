@@ -116,8 +116,11 @@ public class managerLogcontroller extends HttpServlet{
 				String Password = "1234";
 				String ID1 = request.getParameter("ID");
 				String Password1 = request.getParameter("Password");
-
-				 
+				
+				if(mamont==null)
+					mamont="1000";
+				if(Mamont==null)
+					Mamont="100000";
 				 if(ID1 == null || Password1 == null) {
 						request.setAttribute("mamont",mamont);
 						request.setAttribute("Mamont",Mamont);

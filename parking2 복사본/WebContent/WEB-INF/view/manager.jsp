@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.sql.*"%>
     <%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String ID1 = (String)request.getAttribute("ID1");
 	String Password1 = (String)request.getAttribute("Password1");
@@ -28,8 +29,8 @@
       body {
      	font-size:15px;
         font-weight:bolder;
-       
-       
+       	background-color:black;
+       color:white;
       }
       div{
       display:flex;
@@ -53,6 +54,22 @@
 	display:flex;
 	justify-content:center;
 	}
+	.btn {
+border:1x solid #ff0080;    /*---테두리 정의---*/
+background-Color:#ffe6f2;   /*--백그라운드 정의---*/
+font:12px 굴림;      /*--폰트 정의---*/
+font-weight:bold;   /*--폰트 굵기---*/
+color:#ff0080;    /*--폰트 색깔---*/
+width:130px;
+height:50px;  /*--버튼 크기---*/
+}
+.btn1{
+color:black;
+}
+.mamont input{
+color:black;
+}
+
 
     </style>
 </head>
@@ -69,7 +86,7 @@
 <h3>관리자 ${ID1}님 환영합니다.</h3> 
  
 <form method="post" action="parking.jsp">
-	<input type= submit value="메인페이지로">
+	<input type= submit value="메인페이지로" class="btn1">
 	 <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 	<input type= hidden name ="mamont" value="<%=mamont%>">
 	<input type= hidden name ="ID1" value="${ID1}">
@@ -78,7 +95,7 @@
 <form method="post" action="sessionLogout.jsp">
  <input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 	<input type= hidden name ="mamont" value="<%=mamont%>">
-	<input type= submit value="로그아웃">
+	<input type= submit value="로그아웃" class="btn1">
 	</form>
 
 
@@ -87,34 +104,33 @@
 			공영 주차장 프로젝트<br>
 			- 관리자 페이지 -
 		</div>
-		현재 10분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+		현재 10분당 금액 :<%=mamont%>  월 금액 :<%=Mamont%>
 		<div class="nav">
-		<form method="post" action="mamont.jsp" style="margin-left:20px;">
-		   		<label>10분당 금액 : </label><input type="text"  placeholder="초기값 1,000원" name="mamont" maxlength="8" pattern=".{1,10}" style="margin-left:20px;">		
-					 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-					 		<input type= hidden name ="mamont" value="<%=mamont%>">
+		<form method="post" action="mamont.ma" style="margin-left:20px;" class="mamont">
+		   		<label>10분당 금액 : </label><input type="text"  placeholder="초기값 1000원" name="mamont" maxlength="7" pattern="^[0-9]*$" style="margin-left:20px;">		
+				<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 				<input type= hidden name ="ID1" value="<%=ID1%>">
 				<input type= hidden name ="Password1" value="<%=Password1%>">
-				<input type= submit value="금액 변경" style="margin-left:10px;">
+				<input type= submit class="btn" value="금액 변경" style="margin-left:10px;">
 			
 			</form>
-			<form method="post" action="mamont2.jsp" style="margin-left:20px;">
-		   		<label>월 금액 : </label><input type="text"  placeholder="초기값 100,000원" name="Mamont" maxlength="8" pattern=".{1,10}" style="margin-left:20px;">
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
-						 		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+			<form method="post" action="mamont2.ma" style="margin-left:20px;" class="mamont">
+		   		<label>월 금액 : </label><input type="text" placeholder="초기값 100000원" name="Mamont" maxlength="7" pattern="^[0-9]*$" style="margin-left:20px;">
+				<input type= hidden name ="mamont" value="<%=mamont%>">
+			
 				<input type= hidden name ="ID1" value="<%=ID1%>">
 				<input type= hidden name ="Password1" value="<%=Password1%>">
-				<input type= submit value="금액 변경" style="margin-left:10px;">
+				<input type= submit class="btn" value="금액 변경" style="margin-left:10px;">
 			</form>
 		</div>
 	
 		   <div class="title2" >
-		  <div class="title2_name">-회원 정보- </div>
+		  <div class="title2_name" style="margin-top:10px;">-회원 정보- </div>
 		   <form method="post" action="memberLog.man" style="margin-left:20px;">
 		   		<label>mem_id : </label><input type="text"  placeholder="mem_id" name="mem_id" maxlength="25" style="margin-left:20px;">
-				<input type= submit value="특정 로그 삭제" style="margin-left:20px;">
-								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
+				<input type= submit class="btn" value="특정 로그 삭제" style="margin-left:20px;">
+				<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+				<input type= hidden name ="mamont" value="<%=mamont%>">
 				<input type= hidden name ="ID1" value="<%=ID1%>">
 				<input type= hidden name ="Password1" value="<%=Password1%>">
 			</form>
@@ -145,19 +161,19 @@
       </table>
       
       <div class="title2" >
-		   -주차장 이용 로그-
+		   <div class="title2_name" style="margin-top:10px;">-주차장 이용 로그- </div>
 		    <form method="post" action="parking2Log.man" style="margin-left:20px;">
 		   		<label>parking_id : </label><input type="text"  placeholder="parking_id" name="parking_id" maxlength="25" style="margin-left:20px;">
-				<input type= submit value="특정 로그 삭제" style="margin-left:20px;">
-								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
+				<input type= submit value="특정 로그 삭제" class="btn" style="margin-left:20px;">
+				<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+				<input type= hidden name ="mamont" value="<%=mamont%>">
 				<input type= hidden name ="ID1" value="${ID1}">
 				<input type= hidden name ="Password1" value="${Password1}">
 			</form>
 		   <form method="post" action="parkingDel.man">
-				<input type= submit value="주자창 로그 전체 삭제" style="margin-left:20px;">
-								 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
-						 	<input type= hidden name ="mamont" value="<%=mamont%>">
+				<input type= submit value="주자창 로그 전체 삭제" class="btn" style="margin-left:20px;">
+				<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+				<input type= hidden name ="mamont" value="<%=mamont%>">
 				<input type= hidden name ="ID1" value="${ID1}">
 				<input type= hidden name ="Password1" value="${Password1}">
 			</form>

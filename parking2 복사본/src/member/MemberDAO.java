@@ -173,5 +173,26 @@ public class MemberDAO {
 				  }
 				  return -2; // 디비오류
 				 }
+
+	 public int joinCheck(Member member) {
+		  String SQL = "SELECT member_car FROM Member WHERE member_car=?";
+		  try {
+			  PreparedStatement pstmt = conn.prepareStatement(SQL);
+			  pstmt = conn.prepareStatement(SQL);
+			  pstmt.setString(1, member.getMember_car());
+		   rs = pstmt.executeQuery();
+		  
+		   if(rs.next()) {
+			   
+		    	return -1;  // 중복
+		     
+		   }else 
+		   return 1;  // 중복아님
+		  
+		  }catch(Exception e) {
+		   e.printStackTrace();
+		  }
+		  return -2; // 디비오류
+		 }
 }
 	

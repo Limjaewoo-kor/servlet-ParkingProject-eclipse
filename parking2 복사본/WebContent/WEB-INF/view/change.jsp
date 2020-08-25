@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
 <%@ page import="parking.ParkingDAO" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -124,12 +125,12 @@ background-color:#f8363662;;;}
 		<div class="title">
 			<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+			현재 10분당 금액 :<fmt:formatNumber value="${mamont}"/>   월 금액 :<fmt:formatNumber value="${Mamont}"/> 
 		</div>
 	</div>
  	<form method="post" action="parkingOut1.jae" class="form1">
  		차량번호는 ${car_number}입니다.<br><br>
- 		잔돈은  ${to}원 입니다.<br><br>
+ 		잔돈은  <fmt:formatNumber value="${to}"/>원 입니다.<br><br>
  		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 		<input type= hidden name ="mamont" value="<%=mamont%>">
  		<input type= "hidden" name="car_number" value="${car_number}">

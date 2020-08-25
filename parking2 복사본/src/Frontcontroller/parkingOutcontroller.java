@@ -140,7 +140,10 @@ public class parkingOutcontroller extends HttpServlet{
 	
 		ParkingDAO parkingDAO = new ParkingDAO();
 		int result1 = parkingDAO.settlement(parkingDTO);
-
+		if(result1<1) {
+			result1=1;
+		}
+		
 		int rates = mamont1;
 		int result = result1*rates;
 		 if(result != -2){
@@ -167,6 +170,9 @@ public class parkingOutcontroller extends HttpServlet{
 
 	ParkingDAO parkingDAO = new ParkingDAO();
 	int result1 = parkingDAO.settlement2(parkingDTO);
+	if(result1<1) {
+		result1=1;
+	}
 
 	int rates = mamont1;
 	int result = result1*rates;

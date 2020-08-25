@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    <%
-   session.getAttribute("ID");
-   session.getAttribute("Password");
-	String Mamont = (String)request.getParameter("Mamont");
-	String mamont = (String)request.getParameter("mamont");
-	if(Mamont==null)
-		 Mamont = "100000";
+   String ID1 = (String)request.getAttribute("ID1");
+	String Password1 = (String)request.getAttribute("Password1");
+	String Mamont1 = (String)request.getAttribute("Mamont");
+	String mamont1 = (String)request.getAttribute("mamont");
 
-	int Mamont2 = Integer.parseInt(Mamont);
-	int mamont2 = Integer.parseInt(mamont);
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -105,23 +101,20 @@ height:750px;
 	align-items:center;
 	}
 body{
-background-color:#f8363662;;;
+background-color:#f8363662;
 color:black;
 }
 .header{
 color:black;
 }
 .footer-box{
-background-color:#f8363662;;;}
+background-color:#f8363662;}
 	}
 
     </style>
 </head>
 <body>	
-<%
-int mamont1 = mamont2;
-int Mamont1 = Mamont2;
-%>
+
 <div class="header" style="text-align:center;">
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
@@ -131,10 +124,12 @@ int Mamont1 = Mamont2;
 	</div>
 
 
-<form action="parking.jsp" method="post" class="form1">
+<form action="managerAction.log" method="post" class="form1">
 	<h1> 정기권 금액이 변경되었습니다.</h1>
 		<input type= hidden name ="mamont" value="<%=mamont1%>">
 		<input type= hidden name ="Mamont" value="<%=Mamont1%>">
+			<input type= hidden name ="ID" value="<%=ID1%>">
+		<input type= hidden name ="Password" value="<%=Password1%>">
 		<input type= "submit" class="btn" value="처음으로" style="margin-left:30px;">
 	</form>
 	<footer>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
 <% 			String mamont = (String)request.getAttribute("mamont");
@@ -117,12 +117,12 @@ background-color:#f8363662;;;}
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-					현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+					현재 10분당 금액 :<%=mamont%>   월 금액 :<%=Mamont%>
 		
 		</div>
 	</div>
  
-<form action="/WEB-INF/view/managerLogin.jsp" method="post" class="form1">
+<form action="managerLogin.jsp" method="post" class="form1">
 		잘못된 입력입니다.
 		
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 

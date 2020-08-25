@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     session.getAttribute("ID");
     session.getAttribute("Password");
 	String ID = (String)request.getParameter("ID1");
  	String mamont = (String)request.getParameter("mamont");
 	String Mamont = (String)request.getParameter("Mamont");
+	session.setAttribute("mamont", mamont);
+	session.setAttribute("Mamont", Mamont);
 %>
 
 <!DOCTYPE html>
@@ -121,6 +124,8 @@ margin-top:150px;
 width:130px;
 background-color:white;
 }
+h3{
+color:white;}
 
 @media only screen and (max-width: 1715px){
 
@@ -179,13 +184,13 @@ background-color:#f8363662;;;}
 	<%if(ID != null) {%>
 	<h3>관리자 ${ID}님 환영합니다.</h3> 
 	<form method="post" action="managerAction.log">
-		<input type= submit value="관리자페이지로">
+		<input type= submit value="관리자페이지로" class="btn1">
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 		<input type= hidden name ="mamont" value="<%=mamont%>">
 		<input type= hidden name ="ID" value="${ID}">
 		<input type= hidden name ="Password" value="${Password}">
 	</form>
-	<form method="post" action="sessionLogout.jsp">
+	<form method="post" action="sessionLogout.jsp" class="btn1">
 		<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 		<input type= hidden name ="mamont" value="<%=mamont%>">
 		<input type= submit value="로그아웃">
@@ -196,7 +201,7 @@ background-color:#f8363662;;;}
 		<div class="title">
 			<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont%>  월 금액 :<%=Mamont%> 
+			현재 10분당 금액 :<fmt:formatNumber value="${mamont}"/>   월 금액 :<fmt:formatNumber value="${Mamont}"/> 
 		</div>
 	</div>  
 	<div class="container">
@@ -228,6 +233,7 @@ background-color:#f8363662;;;}
 		<div class="content3">
 			<div class = "join">
 				<div class ="column">
+				<%if(ID == null) {%>
 					<div class = "manager">
 						<div class="column">
 							<form action = "managerLogin.jsp" method="post">
@@ -237,6 +243,19 @@ background-color:#f8363662;;;}
 							</form>						
 						</div>
 					</div>
+					<%} else{%>
+					<div class = "manager">
+						<div class="column">
+							<form action = "managerAction.log" method="post">
+					 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
+						 		<input type= hidden name ="mamont" value="<%=mamont%>">
+						 		<input type= hidden name ="ID" value="${ID}">
+								<input type= hidden name ="Password" value="${Password}">
+								<input type= "submit" class="btn"  value="관리자 페이지">
+							</form>						
+						</div>
+					</div>
+					<%} %>
 						<div class="column">
 					<form action = "regulerJoinAction.jsp" method="post">
 						<input type= hidden name ="Mamont" value="<%=Mamont%>"> 

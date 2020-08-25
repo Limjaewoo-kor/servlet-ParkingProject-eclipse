@@ -22,11 +22,40 @@ public class hybirdJoincontroller extends HttpServlet{
 		String uri = request.getRequestURI();
 		String command = uri.substring(uri.lastIndexOf("/") +1, uri.lastIndexOf(".hy"));
 		
-	if(command != null && command.trim().equals("hybirdJoin")) {
-		String car_number = request.getParameter("car_number");
-		String Mamont = (String)request.getParameter("Mamont");
-		String mamont = (String)request.getParameter("mamont");
 		
+		if(command != null && command.trim().equals("joinCheck")) {
+			String car_number = request.getParameter("car_number");
+			String Mamont = (String)request.getParameter("Mamont");
+			String mamont = (String)request.getParameter("mamont");
+			
+			if(car_number==null || car_number == "") {	
+				request.setAttribute("mamont",mamont);
+				request.setAttribute("Mamont",Mamont);
+				request.getRequestDispatcher("/WEB-INF/view/error2.jsp").forward(request, response);
+				
+			}else {
+				Member memberDTO = new Member();
+				memberDTO.setMember_car(car_number); 
+				MemberDAO memberDAO = new MemberDAO();
+				  int result = memberDAO.joinCheck(memberDTO);
+				  if(result == -1){  //중복
+					  	request.setAttribute("mamont",mamont);
+						request.setAttribute("Mamont",Mamont);
+						request.getRequestDispatcher("/WEB-INF/view/errorfor.jsp").forward(request, response); 
+			}else { //중복아님
+				request.setAttribute("mamont",mamont);
+				request.setAttribute("Mamont",Mamont);
+				request.setAttribute("car_number",car_number);
+				request.getRequestDispatcher("hybirdJoin.hy").forward(request, response); 
+			}
+			}
+			
+		}else if(command.trim().equals("hybirdJoin")) {
+		String car_number = (String)request.getAttribute("car_number");
+		String Mamont = (String)request.getAttribute("Mamont");
+		String mamont = (String)request.getAttribute("mamont");
+		
+			
 		Member memberDTO = new Member();
 		memberDTO.setMember_car(car_number); 
 
@@ -44,6 +73,5 @@ public class hybirdJoincontroller extends HttpServlet{
 					request.setAttribute("Mamont",Mamont);
 					request.getRequestDispatcher("/WEB-INF/view/memberjoinSt.jsp").forward(request, response); 
 			  }
-	}
-}
+		}}
 }

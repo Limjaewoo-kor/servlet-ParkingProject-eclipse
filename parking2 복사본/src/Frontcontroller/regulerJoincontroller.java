@@ -78,17 +78,38 @@ public class regulerJoincontroller extends HttpServlet{
 		request.setAttribute("Mamont",Mamont);
 		request.getRequestDispatcher("/WEB-INF/view/memberJoin.jsp").forward(request, response); 
 	
+	}else if(command.trim().equals("joinCheck")) {
+			String car_number = request.getParameter("car_number");
+			String Mamont = (String)request.getParameter("Mamont");
+			String mamont = (String)request.getParameter("mamont");
+			
+			if(car_number==null || car_number == "") {	
+				request.setAttribute("mamont",mamont);
+				request.setAttribute("Mamont",Mamont);
+				request.getRequestDispatcher("/WEB-INF/view/memberJoin.jsp").forward(request, response);
+				
+			}else {
+				Member memberDTO = new Member();
+				memberDTO.setMember_car(car_number); 
+				MemberDAO memberDAO = new MemberDAO();
+				  int result = memberDAO.joinCheck(memberDTO);
+				  
+				  if(result == -1){  //중복
+					  	request.setAttribute("mamont",mamont);
+						request.setAttribute("Mamont",Mamont);
+						request.getRequestDispatcher("/WEB-INF/view/errorfor.jsp").forward(request, response); 
+			}else { //중복아님
+				request.setAttribute("mamont",mamont);
+				request.setAttribute("Mamont",Mamont);
+				request.setAttribute("car_number",car_number);
+				request.getRequestDispatcher("regulerJoinComplete.woo").forward(request, response); 
+			}
+			}
+			
 	}else if(command.trim().equals("regulerJoinComplete")) {
 		String Mamont = (String)request.getParameter("Mamont");
 		String mamont = (String)request.getParameter("mamont");
 		String car_number = request.getParameter("car_number");
-		
-		if(car_number == null || car_number == "") {
-			request.setAttribute("mamont",mamont);
-			request.setAttribute("Mamont",Mamont);
-			request.setAttribute("member_car",car_number);
-			request.getRequestDispatcher("regulerJoinAction.jsp").forward(request, response);  //
-		}
 		
 		
 		Member memberDTO = new Member();

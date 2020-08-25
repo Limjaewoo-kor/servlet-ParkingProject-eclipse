@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="parking.ParkingDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -133,7 +133,7 @@ background-color:#f8363662;;;}
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+			현재 10분당 금액 :<fmt:formatNumber value="${mamont}"/>   월 금액 :<fmt:formatNumber value="${Mamont}"/> 
 		</div>
 	</div>
  
@@ -141,12 +141,12 @@ background-color:#f8363662;;;}
  
  <div class="row">
  차량번호는 ${car_number}입니다.<br><br>
- 금액은 ${result}원 입니다.<br><br>
+ 금액은 <fmt:formatNumber value="${result}"/>원 입니다.<br><br>
  결제 방식 및 금액을 투입해주세요.<br>
  </div>
  <div class="row">
 	<form method="post" action="50cash.jae">
-	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" pattern=".{1,8}">
+	<label>현금 입력 : </label><input type="text"  style="margin-top:20px;" placeholder="금액" name="cash" maxlength="7" pattern="^[0-9]*$">
 		<input type= "hidden" name="car_number" value="${car_number}">
 		<input type= "hidden" name="result" value="${result}">
 				 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 

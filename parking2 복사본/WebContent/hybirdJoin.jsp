@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <% 
 	String Mamont = (String)request.getParameter("Mamont");
 	String mamont = (String)request.getParameter("mamont");
@@ -122,13 +123,13 @@ background-color:#f8363662;;;}
 		<div class="title">
 		<img src="images/jj.jpeg" class="header-logo">
 			구공 공영 주차장 프로젝트<br>
-			현재 분당 금액 :<%=mamont %>  월 금액 :<%=Mamont %> 
+			현재 10분당 금액 :<fmt:formatNumber value="${mamont}"/>   월 금액 :<fmt:formatNumber value="${Mamont}"/> 
 		</div>
 	</div>
 	 <div class="row">
-	<form method="post" action="hybirdJoin.hy" class="form1">
+	<form method="post" action="joinCheck.hy" class="form1">
 		<h3 style="text-align: center;">차량 가입 화면</h3>
-			<input type="text" placeholder="00가0000" name="car_number" maxlength="20" pattern="(\d?)(\d{2})([가-힣])(\d{4})" style="margin-left:30px;" >
+			<input type="text" placeholder="00가0000" name="car_number" maxlength="20" style="margin-left:30px;" pattern="(\d?)(\d{2})([가-힣])(\d{4})" >
 			<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
 			<input type= hidden name ="mamont" value="<%=mamont%>">
 			<input type= "submit" class="btn" value="회원 가입" style="margin-left:30px;">

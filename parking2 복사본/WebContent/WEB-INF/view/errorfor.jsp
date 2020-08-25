@@ -123,7 +123,8 @@ background-color:#f8363662;;;}
 	</div>
 	
 <form action="parking.jsp" method="post" class="form1">
-		차량 번호가 없을 수 없습니다.
+		이미 가입되어있습니다.
+		
 		
 		
 	 	<input type= hidden name ="Mamont" value="<%=Mamont%>"> 
